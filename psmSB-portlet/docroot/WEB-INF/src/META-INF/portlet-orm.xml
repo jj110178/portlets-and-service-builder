@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.project.psm.model.impl.AdvertisingModelImpl">
+		<attributes>
+			<id name="adsId">
+				<column name="AD_ID" />
+			</id>
+			<basic name="groupId">
+				<column name="AD_GRP_ID" />
+			</basic>
+			<basic name="companyId">
+				<column name="AD_COMP_ID" />
+			</basic>
+			<basic name="userId">
+				<column name="AD_USER_ID" />
+			</basic>
+			<basic name="userName">
+				<column name="AD_USERNAME" />
+			</basic>
+			<basic name="createDate">
+				<column name="AD_CREATE_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<column name="AD_MODIFIED_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="data1">
+				<column name="AD_DATA1" />
+			</basic>
+			<basic name="data2">
+				<column name="AD_DATA2" />
+			</basic>
+			<basic name="data3">
+				<column name="AD_DATA3" />
+			</basic>
+			<basic name="data4">
+				<column name="AD_DATA4" />
+			</basic>
+			<basic name="data5">
+				<column name="AD_DATA5" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.project.psm.model.impl.AdvertisingImpl" name="Advertising">
+		<table name="ADVERTISING" />
+		<attributes />
+	</entity>
+</entity-mappings>

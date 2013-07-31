@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+>
+	<!-- Data source definition for an external (non-liferay) data source -->
+
+	<bean id="pinsightDataSource" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/reportsdb?useUnicode=true&amp;characterEncoding=UTF-8&amp;useFastDateParsing=false" />
+		<property name="user" value="root" />
+		<property name="password" value="" />
+	</bean>
+	
+    <bean id="pinsightHibernateSessionFactory" class="com.liferay.portal.spring.hibernate.PortletHibernateConfiguration">
+        <property name="dataSource" ref="pinsightDataSource" />
+    </bean>
+    <bean id="pinsightSessionFactory" class="com.liferay.portal.dao.orm.hibernate.PortletSessionFactoryImpl">
+        <property name="dataSource" ref="pinsightDataSource" />
+        <property name="sessionFactoryClassLoader" ref="portletClassLoader" />
+        <property name="sessionFactoryImplementor" ref="pinsightHibernateSessionFactory" />
+    </bean>
+    
+	<!-- Data source definition for a non-db data source entity -->
+	<bean id="noDataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+		<property name="targetDataSource" ref="liferayDataSource" />
+	</bean>
+</beans>

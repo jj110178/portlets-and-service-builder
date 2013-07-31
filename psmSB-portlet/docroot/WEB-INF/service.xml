@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+<service-builder package-path="com.project.psm">
+	<author>jeffreyjarin</author>
+	<namespace>psm</namespace>
+
+		<!-- 
+		This is defines the connection for external database / the reporting database 
+	    by default Liferay automatically connects to a portal Database define in portal-ext.properties 
+	     -->
+	<entity name="Advertising" local-service="true" remote-service="true" data-source="pinsightDataSource" table="ADVERTISING" session-factory="pinsightSessionFactory">
+
+		<!-- PK fields -->
+
+		<column name="adsId" type="long" primary="true" id-type="increment" db-name="AD_ID"/>
+
+        <!-- Group instance -->
+
+        <column name="groupId" type="long" db-name="AD_GRP_ID"/>
+        
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" db-name="AD_COMP_ID"/>
+		<column name="userId" type="long" db-name="AD_USER_ID"/>
+		<column name="userName" type="String" db-name="AD_USERNAME"/>
+		<column name="createDate" type="Date" db-name="AD_CREATE_DT"/>
+		<column name="modifiedDate" type="Date" db-name="AD_MODIFIED_DT"/>
+
+		<!-- Other fields -->
+
+		<column name="data1" type="double" db-name="AD_DATA1"/>
+		<column name="data2" type="double" db-name="AD_DATA2"/>
+		<column name="data3" type="double" db-name="AD_DATA3"/>
+		<column name="data4" type="double" db-name="AD_DATA4"/>
+		<column name="data5" type="double" db-name="AD_DATA5"/>
+
+		<!-- Order -->
+
+		<!-- order by="asc">
+			<order-column name="field1" />
+		</order-->
+
+		<!-- Finder methods -->
+
+		<!--finder name="Field2" return-type="Collection">
+			<finder-column name="field2" />
+		</finder-->
+	</entity>
+</service-builder>

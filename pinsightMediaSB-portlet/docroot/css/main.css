@@ -1,0 +1,15 @@
+.frame-container {
+	text-align: center;
+	}
+
+.frame-main {
+}
+
+.frame-block {
+	width: 490px;
+	height:370px;
+	display:inline-block;
+	
+	margin:5px;
+	border: 1px #0066FF solid;
+	}

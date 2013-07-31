@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.pinsightmedia", "com.pinsightmedia.sb.service", "pinsightMediaSB-portlet");

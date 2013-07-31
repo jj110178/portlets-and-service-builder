@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.project.psm.service.AdvertisingLocalService" class="com.project.psm.service.impl.AdvertisingLocalServiceImpl" />
+	<bean id="com.project.psm.service.AdvertisingService" class="com.project.psm.service.impl.AdvertisingServiceImpl" />
+	<bean id="com.project.psm.service.persistence.AdvertisingPersistence" class="com.project.psm.service.persistence.AdvertisingPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="pinsightDataSource" />
+		<property name="sessionFactory" ref="pinsightSessionFactory" />
+	</bean>
+</beans>
