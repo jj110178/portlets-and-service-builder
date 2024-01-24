@@ -148,8 +148,8 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
-		if (oldModelClassName.equals(
-					"com.pinsightmedia.sb.model.impl.AdvertisingImpl")) {
+		if ("com.pinsightmedia.sb.model.impl.AdvertisingImpl".equals
+					(oldModelClassName)) {
 			return translateOutputAdvertising(oldModel);
 		}
 
@@ -233,7 +233,7 @@ public class ClpSerializer {
 			return new SystemException();
 		}
 
-		if (className.equals("com.pinsightmedia.sb.NoSuchAdvertisingException")) {
+		if ("com.pinsightmedia.sb.NoSuchAdvertisingException".equals(className)) {
 			return new com.pinsightmedia.sb.NoSuchAdvertisingException();
 		}
 

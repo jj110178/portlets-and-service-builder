@@ -148,8 +148,8 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
-		if (oldModelClassName.equals(
-					"com.project.psm.model.impl.AdvertisingImpl")) {
+		if ("com.project.psm.model.impl.AdvertisingImpl".equals
+					(oldModelClassName)) {
 			return translateOutputAdvertising(oldModel);
 		}
 
@@ -233,7 +233,7 @@ public class ClpSerializer {
 			return new SystemException();
 		}
 
-		if (className.equals("com.project.psm.NoSuchAdvertisingException")) {
+		if ("com.project.psm.NoSuchAdvertisingException".equals(className)) {
 			return new com.project.psm.NoSuchAdvertisingException();
 		}
 
